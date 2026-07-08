@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wolfenstein 3D on the Atari Lynx — Paul Withers</title>
+  <meta name="description" content="How a full Wolfenstein 3D was ported to the 1989 Atari Lynx: BSP rendering, Suzy hardware sprite scaling, TATE mode, and packing 245 KB of art into an 81 KB cartridge." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="index.html"><span class="brand__mark">P</span> paul_withers</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a class="nav-hide" href="index.html#experience">Experience</a>
+        <a class="nav-hide" href="index.html#lynx">Lynx</a>
+        <a href="index.html#contact">Contact</a>
+        <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle colour theme">☾ theme</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <article>
+      <!-- ===== HEADER ===== -->
+      <div class="wrap article-head">
+        <div class="reading">
+          <a class="back-link" href="index.html">← back to work</a>
+          <p class="eyebrow" style="margin-top:1.5rem;">Case study · Atari Lynx</p>
+          <h1 style="font-size:var(--step-4);font-weight:600;line-height:1.05;">Wolfenstein&nbsp;3D on the Atari Lynx</h1>
+          <p class="lede" style="margin-top:1.4rem;">
+            The entire 1994 Mac version — every level, boss, sprite and animation —
+            squeezed into a 512&nbsp;KB cartridge and rendered by a 16-bit sprite chip
+            named Suzy. Four years of work.
+          </p>
+          <div class="callout" style="margin-top:2rem;">
+            <span class="k">Shareware release — out now</span>
+            <p style="margin-bottom:1rem;">
+              The shareware build (first three levels) is publicly released and available to
+              download and run. The full version is still in progress.
+            </p>
+            <a class="btn btn--primary" href="https://forums.atariage.com/topic/390838-wolfenstein-3d-shareware/">Download on AtariAge ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <figure class="reading portrait" style="margin-top:2.5rem;">
+          <img src="assets/wolf/gearlynx_profiler.png" alt="Wolfenstein 3D running in a Lynx emulator with the custom profiler open" />
+          <figcaption>Wolfenstein 3D running in GearLynx, with the custom CPU / sprite-engine profiler attached.</figcaption>
+        </figure>
+      </div>
+
+      <!-- ===== BODY ===== -->
+      <div class="wrap">
+        <div class="reading">
+
+          <h2>Why Wolfenstein, and why the Lynx?</h2>
+          <p>
+            I took my first steps on the Lynx in 2017, after reading the
+            <em>Diary of an Atari Lynx Developer</em> series. I'd always been curious
+            about how the machine worked under the hood, and what its unrealised
+            potential was. It got serious around 2021.
+          </p>
+          <p>
+            I've always been a huge id Software fan — they were my heroes at university.
+            Every John Carmack <code>.plan</code> file, every interview, every Michael
+            Abrash article, all of their source code: I lapped it up. But it was
+            John Romero mentioning that id had themselves started an Atari Lynx version
+            of Wolfenstein — and how cool they thought it would be on that platform —
+            that made the idea take hold. After looking at other ports to see what had
+            been done, I realised the Lynx could do a genuinely good job here.
+          </p>
+
+          <h2>What came across from the original</h2>
+          <p>
+            The Lynx version is built on the source of the 1994 Mac release — itself a
+            derivative of the SNES and Jaguar versions. It contains all of the original
+            gameplay data and logic, all sprites and animations, wall textures, every
+            boss and all of the levels. The whole Mac version has been squeezed into a
+            512&nbsp;KB cartridge. Some of the larger maps have reduced wall complexity
+            to fit into memory, and in-game music was cut in favour of sound effects.
+          </p>
+
+          <h2>How the engine draws</h2>
+          <p>
+            The renderer is a heavily customised version of the original Mac one. The
+            Mac uses a Binary Space Partitioning (BSP) tree to speed up visible-surface
+            determination; the Lynx does too, with some extra culling on top.
+          </p>
+          <p>
+            Where the Lynx differs is <em>how walls are actually drawn.</em> The Mac
+            draws walls with the CPU, column by column, pixel by pixel. The Lynx has a
+            16-bit sprite engine — a chip called <b>Suzy</b> — with some insanely
+            powerful scaling features. So instead of the CPU drawing each wall pixel by
+            pixel, the Lynx draws each wall section once with Suzy, then leverages her
+            ability to stretch and tilt that section into the required 3D perspective.
+          </p>
+
+          <blockquote>
+            That really is the secret sauce. Each wall segment is a single Suzy stretched
+            sprite. On any other platform of the time, a wall segment is hundreds of
+            thousands of CPU cycles of work. On the Lynx it's almost zero.
+          </blockquote>
+
+          <figure class="reading">
+            <img src="assets/wolf/bsp_render_steps.png" alt="A 3D Wolfenstein scene built up one wall segment at a time" />
+            <figcaption>The whole 3D world in this scene is drawn with only 6 sprites — shown building up one segment at a time from a blank screen.</figcaption>
+          </figure>
+
+          <p>
+            The main drawback: because Suzy can only perform these transformations across
+            different scan-lines, the Lynx has to be held in portrait — <b>TATE mode</b> —
+            for the effect to convince. (In id's own unreleased Lynx Wolfenstein, they
+            made the same call.)
+          </p>
+
+          <figure class="reading">
+            <img src="assets/wolf/suzy_scaling.png" alt="Diagram of Suzy's two scaling operations combining into a perspective warp" />
+            <figcaption>Suzy can stretch a sprite one row at a time, or shift its start position one row at a time. Combined, they produce a perspective warp in a texture essentially for free — as long as it's viewed on the side.</figcaption>
+          </figure>
+
+          <div class="callout">
+            <span class="k">The parallelism trick</span>
+            <p>
+              Suzy can also do multiplication and division in hardware — used constantly
+              for perspective math. Crucially, the Lynx can run those operations
+              <em>simultaneously</em> while the CPU does other work. Organising the code
+              so CPU work and Suzy math overlap was the most time-consuming optimisation,
+              and the most effective — effectively more work done per clock.
+            </p>
+          </div>
+
+          <h2>Getting the art onto the cart</h2>
+          <p>
+            Almost nothing transfers straight across — the Lynx is too different from a
+            Mac or PC, so everything had to be converted. Graphics were the big job. The
+            original ran in 256 colours; the Lynx shows 16 on screen at once. Picking a
+            16-colour palette that looked authentic, stayed readable in-game, and simply
+            looked good took a long time.
+          </p>
+          <p>
+            Every in-game image was crushed to that palette, resized for the smaller
+            screen, then given a manual per-pixel touch-up. At build time the images are
+            packed into the Lynx's native compressed sprite format to save cartridge space.
+          </p>
+
+          <figure class="reading">
+            <img src="assets/wolf/enemies_comparison.png" alt="Lynx enemy sprites next to the original assets" />
+            <figcaption>Enemy sprites, Lynx palette versus the originals.</figcaption>
+          </figure>
+          <figure class="reading">
+            <img src="assets/wolf/walls_comparison.png" alt="Lynx wall textures next to the original assets" />
+            <figcaption>Wall textures, reduced to 16 colours.</figcaption>
+          </figure>
+
+          <div class="data-table">
+            <table>
+              <thead>
+                <tr><th>In-game assets</th><th>Uncompressed (3bpp)</th><th>Packed on-cart</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Sprites (170 frames)</td><td>238 KB</td><td>74 KB</td></tr>
+                <tr><td>Walls (35 textures)</td><td>6.6 KB</td><td>6.4 KB</td></tr>
+                <tr class="total"><td>Total</td><td>≈ 245 KB</td><td>≈ 81 KB</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            So 245&nbsp;KB of art compresses into 81&nbsp;KB — and of that, only about
+            5&nbsp;KB ever lives in Lynx memory at once. In-memory sprites, enemies and
+            walls alike, sit in a time-to-live (TTL) cache that's refreshed every frame.
+            Sound is a similar story: samples were pulled from the DOS version and
+            downsampled to 4-bit, 2000&nbsp;Hz, one-second clips.
+          </p>
+
+          <h2>The toolchain</h2>
+          <p>
+            Development is Visual Studio Code with Neovim, plus a heavily modified
+            <b>GearLynx</b> emulator I've extended with a profiling suite for CPU and
+            sprite-engine timings. Everything else — map editors, sprite editors,
+            cartridge packers — is custom Python.
+          </p>
+
+          <figure class="reading">
+            <img src="assets/wolf/map_editor.png" alt="Custom Wolfenstein 3D map editor" />
+            <figcaption>Custom Wolfenstein 3D map editor.</figcaption>
+          </figure>
+          <figure class="reading">
+            <img src="assets/wolf/sprite_editor.png" alt="Custom Lynx sprite editor" />
+            <figcaption>The Lynx sprite editor.</figcaption>
+          </figure>
+          <figure class="reading">
+            <img src="assets/wolf/dev_setup.png" alt="Development environment in VS Code" />
+            <figcaption>Day-to-day: VS Code + Neovim.</figcaption>
+          </figure>
+
+          <h2>Could the engine run other games?</h2>
+          <p>
+            Yes. All source and tools will be released once the full Wolfenstein 3D is
+            complete — at which point anyone could swap the assets and build something
+            new. A Doom conversion is possible too, likely based on the SNES version with
+            its simplified geometry, but it would probably need at least a 1&nbsp;MB cart.
+            The real limit is the Lynx's tiny RAM: assets can't be read straight off the
+            cartridge — everything, from lookup tables to enemy logic to graphics and
+            sound, has to be copied into RAM first, so the cart behaves more like a disk
+            drive than ROM.
+          </p>
+
+          <div class="callout">
+            <span class="k">In progress</span>
+            <p>
+              Beyond finishing the full Wolfenstein 3D, current Lynx work is split across
+              a port of the Amiga's <b>Another World</b> and the Atari ST version of
+              <b>Prince of Persia</b> — plus a released Super Mario Bros. port and a
+              Mortal Kombat II proof of concept. <a href="index.html#lynx">See all Lynx projects →</a>
+            </p>
+          </div>
+
+          <div style="margin:3.5rem 0 1rem;">
+            <a class="btn btn--primary" href="index.html">← Back to portfolio</a>
+            <a class="btn" href="mailto:paul.withers@gmail.com" style="margin-left:.6rem;">Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span>© <span id="year">2026</span> Paul Withers · Melbourne, Australia</span>
+      <span><a href="index.html">Home</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

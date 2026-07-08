@@ -1,0 +1,8 @@
+# local tooling / notes — not for the public repo
+.claude/
+README.md
+
+# OS cruft
+.DS_Store
+Thumbs.db
+*.swp
