@@ -1,4 +1,4 @@
-// ---- Theme toggle (persisted) ----------------------------
+// ---- Theme toggle (persisted; defaults to system) --------
 (function () {
   var root = document.documentElement;
   var KEY = "pw-theme";
@@ -7,17 +7,23 @@
     if (saved) root.setAttribute("data-theme", saved);
   } catch (e) {}
 
+  function isDark() {
+    var set = root.getAttribute("data-theme");
+    if (set) return set === "dark";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+
   function label() {
-    var isDark = root.getAttribute("data-theme") !== "light";
+    // button names the theme you'll switch to
     document.querySelectorAll("#themeBtn").forEach(function (b) {
-      b.textContent = isDark ? "☾ theme" : "☀ theme";
+      b.textContent = isDark() ? "Day" : "Night";
     });
   }
   label();
 
   document.querySelectorAll("#themeBtn").forEach(function (btn) {
     btn.addEventListener("click", function () {
-      var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      var next = isDark() ? "light" : "dark";
       root.setAttribute("data-theme", next);
       try { localStorage.setItem(KEY, next); } catch (e) {}
       label();
@@ -30,20 +36,3 @@ document.querySelectorAll("#year").forEach(function (el) {
   // Date is intentionally read at runtime in the browser, not build time.
   el.textContent = new Date().getFullYear();
 });
-
-// ---- Scroll reveal ---------------------------------------
-(function () {
-  var els = document.querySelectorAll(".reveal");
-  if (!els.length) return;
-  if (!("IntersectionObserver" in window) ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    els.forEach(function (el) { el.classList.add("in"); });
-    return;
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
-    });
-  }, { threshold: 0.12 });
-  els.forEach(function (el) { io.observe(el); });
-})();

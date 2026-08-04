@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paul Withers — 3D Graphics &amp; Systems Programmer</title>
+  <title>Paul Withers — C++ Systems &amp; 3D Graphics Programmer</title>
   <meta name="description" content="Paul Withers — C/C++ software engineer with 20 years' commercial experience, 12 in games. Real-time 3D graphics: terrain visualisation at Rio Tinto, twelve years shipping titles at EA, and Atari Lynx homebrew including a Wolfenstein 3D engine." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Libre+Franklin:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <!-- ================= NAV ================= -->
   <header class="nav">
     <div class="wrap nav__inner">
-      <a class="brand" href="#top"><span class="brand__mark">P</span> paul_withers</a>
+      <a class="brand" href="#top">Paul<span class="fuji">/</span>Withers</a>
       <nav class="nav__links" aria-label="Primary">
         <a class="nav-hide" href="#experience">Experience</a>
         <a class="nav-hide" href="#games">Games</a>
         <a class="nav-hide" href="#lynx">Lynx</a>
-<!-- Temporarily disabled — re-enable later: <a href="wolfenstein.html">Wolf3D&nbsp;↗</a> -->
+<!-- Temporarily disabled — re-enable later: <a href="wolfenstein.html">Wolf3D</a> -->
         <a href="#contact">Contact</a>
-        <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle colour theme">☾ theme</button>
+        <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle colour theme">Night</button>
       </nav>
     </div>
   </header>
@@ -29,91 +29,61 @@
   <main id="top">
     <!-- ================= HERO ================= -->
     <section class="hero">
-      <div class="wrap hero__grid" style="grid-template-columns:1fr;">
-        <div>
-          <p class="eyebrow">Melbourne, Australia · C/C++ since 2004</p>
-          <h1>3D graphics and <span class="accent">systems</span> programmer.</h1>
-          <p class="hero__role">
-            Twenty years of C++ close to the metal — from twelve years <b>shipping games</b>
-            at EA to real-time <b>terrain visualisation</b> at Rio&nbsp;Tinto.
-          </p>
-          <p class="lede hero__lede">
-            I build renderers and engines with a strong 3D-graphics and maths core.
-            Most recently that meant streaming multi-gigabyte mine models in real time at
-            <b>Rio&nbsp;Tinto</b>; for twelve years before that, games at <b>EA</b>. In 2024
-            I traded the desk for a <b>Winnebago and drove a lap of Australia</b> — back now,
-            and on the hunt for the next thing.
-          </p>
-          <div class="hero__meta">
-            <span class="tag">C++ / C</span>
-            <span class="tag">OpenGL · Vulkan</span>
-            <span class="tag">Real-time rendering</span>
-            <span class="tag">65C02 assembly</span>
-          </div>
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="#experience">See my experience →</a>
-<!-- Temporarily disabled — re-enable later: <a class="btn" href="wolfenstein.html">The Wolf3D build</a> -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= STATS ================= -->
-    <section class="section" style="padding-block: clamp(2rem,5vw,3rem);">
       <div class="wrap">
-        <div class="stats reveal">
-          <div class="stat"><div class="stat__n">20<span style="font-size:.55em"> yrs</span></div><div class="stat__l">commercial C++</div></div>
-          <div class="stat"><div class="stat__n">12<span style="font-size:.55em"> yrs</span></div><div class="stat__l">games @ EA</div></div>
-          <div class="stat"><div class="stat__n">10<span style="font-size:.55em"> GB+</span></div><div class="stat__l">terrain streamed live</div></div>
-          <div class="stat"><div class="stat__n">#1</div><div class="stat__l">Spy Mouse · App Store</div></div>
-        </div>
+        <p class="kicker">Melbourne, Australia · C &amp; C++ since 2004</p>
+        <h1>C++ systems &amp;&nbsp;3D graphics programmer</h1>
+        <div class="stripe" aria-hidden="true"><i></i><i></i><i></i></div>
+        <p class="hero__intro">
+          Twenty years of high-performance C++ — twelve of them
+          <b>shipping games at EA</b>, then <b>streaming multi-gigabyte mine models
+          in real time</b> at Rio&nbsp;Tinto.
+        </p>
+        <p class="hero__intro">
+          In 2024 I took a career break: bought a Winnebago van and drove a full
+          loop of Australia, studying music and writing Atari&nbsp;Lynx homebrew
+          along the way. Back in Melbourne as of February 2026, and looking for
+          a new challenge.
+        </p>
+
+        <nav class="contents" aria-label="Contents">
+          <h2 class="contents__title">Contents</h2>
+          <ol>
+            <li><a href="#experience"><span>Experience</span><span class="leader" aria-hidden="true"></span><span class="pg">2004 – now</span></a></li>
+            <li><a href="#games"><span>Shipped games</span><span class="leader" aria-hidden="true"></span><span class="pg">6 titles</span></a></li>
+            <li><a href="#lynx"><span>Atari Lynx homebrew</span><span class="leader" aria-hidden="true"></span><span class="pg">5 projects</span></a></li>
+            <li><a href="#skills"><span>Toolbox</span><span class="leader" aria-hidden="true"></span><span class="pg">parts list</span></a></li>
+            <li><a href="#contact"><span>Contact</span><span class="leader" aria-hidden="true"></span><span class="pg">back page</span></a></li>
+          </ol>
+        </nav>
       </div>
     </section>
 
-    <!-- ================= ABOUT ================= -->
-    <section class="section" id="about">
+    <!-- ================= SPECIFICATIONS ================= -->
+    <section class="section" style="padding-top:0;">
       <div class="wrap">
-        <p class="eyebrow">Summary</p>
-        <div class="about reveal">
-          <div class="about__body">
-            <p>
-              I'm a C/C++ software engineer with 20 years of commercial experience —
-              12 of them in the games industry — and a strong background in 3D graphics
-              and maths across Windows, Mac, Linux, iOS and Android.
-            </p>
-            <p>
-              I've worked the full software lifecycle: design, implementation, testing,
-              debugging and the kind of optimisation where the last week before launch
-              actually matters. Away from the day job I'm a hobbyist coder and Linux
-              enthusiast, which is where the Atari Lynx work lives.
-            </p>
-          </div>
-          <aside class="about__aside">
-            <dl>
-              <div>
-                <dt>Status</dt>
-                <dd>Back from a lap of Australia (finished Feb 2026). Open to new 3D graphics &amp; engine roles.</dd>
-              </div>
-              <div>
-                <dt>Education</dt>
-                <dd>B.CompSci (Systems Development)<br />Monash University, 2004</dd>
-              </div>
-              <div>
-                <dt>Based in</dt>
-                <dd>Melbourne, Australia</dd>
-              </div>
-            </dl>
-          </aside>
+        <div class="specs">
+          <h2 class="specs__title">Technical specifications</h2>
+          <dl>
+            <div><dt>Commercial C / C++</dt><dd>20 years</dd></div>
+            <div><dt>Games industry, Electronic Arts</dt><dd>12 years <small>· senior / lead</small></dd></div>
+            <div><dt>Commercial titles shipped</dt><dd>6 <small>· mobile &amp; handheld</small></dd></div>
+            <div><dt>Titles that reached #1 on the App Store</dt><dd>3</dd></div>
+            <div><dt>Education</dt><dd>B.CompSci <small>· Monash, 2004</small></dd></div>
+            <div><dt>Current status</dt><dd>Open to a new challenge</dd></div>
+          </dl>
         </div>
       </div>
     </section>
 
-    <!-- ================= EXPERIENCE ================= -->
+    <!-- ================= 1 · EXPERIENCE ================= -->
     <section class="section" id="experience">
       <div class="wrap">
-        <p class="eyebrow">Career</p>
-        <h2>Experience</h2>
-        <div class="timeline reveal">
+        <header class="chapter">
+          <span class="chapter__no" aria-hidden="true">1</span>
+          <h2>Experience</h2>
+          <span class="chapter__note">2004 – present</span>
+        </header>
+        <div class="timeline">
 
           <article class="job">
             <div class="job__when">
@@ -125,8 +95,9 @@
               <div class="job__co">Career break</div>
               <p class="job__desc">
                 Bought a Winnebago van and drove a full loop of the country, wrapping up in
-                February 2026. Plenty of time on the road also went into the Atari&nbsp;Lynx
-                Wolfenstein&nbsp;3D port below. Now back in Melbourne and looking for the next thing.
+                February 2026. Time on the road also went into studying music and the
+                Atari&nbsp;Lynx Wolfenstein&nbsp;3D port below. Now back in Melbourne and
+                looking for the next thing.
               </p>
             </div>
           </article>
@@ -162,7 +133,8 @@
               <ul class="job__pts">
                 <li>Led a small team to <b>finish Back at the Barnyard in just six months</b></li>
                 <li>Optimised <b>Real Racing</b> in the final week before launch</li>
-                <li>Saw <b>Spy Mouse become #1 on the App Store</b></li>
+                <li>On the team that took <b>Spy Mouse to #1 on the App Store</b></li>
+                <li>Shipped titles on <b>ARM7/ARM9 handheld hardware</b> (Nintendo DS)</li>
                 <li>3D renderer development; 2D &amp; 3D animation systems across several titles</li>
                 <li>CPU and GPU performance diagnosis and optimisation</li>
                 <li>Rapid prototyping of games and gameplay with designer feedback; tools, exporters and custom builds</li>
@@ -181,7 +153,7 @@
                 drilling simulator — both C++ with an OpenGL renderer.
               </p>
               <ul class="job__pts">
-                <li>Owned application architecture, all libraries, an <b>OpenGL 2.0 renderer</b> and the custom-hardware interface</li>
+                <li>Owned application architecture, all libraries, an <b>OpenGL 2.0 renderer</b> and the <b>C++ interface to the custom haptic hardware</b></li>
                 <li>Directed content creators; liaised with doctors and hardware designers</li>
                 <li>Took technical handover of a voxel-based bone-drilling simulator from the CSIRO</li>
               </ul>
@@ -206,180 +178,153 @@
             </div>
           </article>
 
-        </div>
-
-        <p class="eyebrow" style="margin-top:3.5rem;">Education</p>
-        <div class="timeline reveal">
-          <article class="job">
+          <article class="job edu">
             <div class="job__when">Graduated 2004</div>
             <div>
               <div class="job__role">Bachelor of Computer Science</div>
               <div class="job__co">Monash University <span class="type">· major in Systems Development</span></div>
             </div>
           </article>
+
         </div>
       </div>
     </section>
 
-    <!-- ================= SELECTED GAMES ================= -->
+    <!-- ================= 2 · SHIPPED GAMES ================= -->
     <section class="section" id="games">
       <div class="wrap">
-        <p class="eyebrow">Shipped titles · programming credits</p>
-        <h2>Games I helped ship</h2>
-        <p class="lede" style="margin-top:1rem;">
+        <header class="chapter">
+          <span class="chapter__no" aria-hidden="true">2</span>
+          <h2>Shipped games</h2>
+          <span class="chapter__note">Programming credits</span>
+        </header>
+        <p class="lede">
           Commercially released titles I'm credited on, across mobile and handheld consoles.
         </p>
         <div class="games">
 
-          <article class="game">
+          <figure class="game">
             <div class="game__art"><img src="assets/games/real_racing_3.jpg" alt="Real Racing 3 cover art" loading="lazy" /></div>
-            <div class="game__body">
+            <figcaption>
               <div class="game__top"><span class="game__name">Real Racing 3</span><span class="game__year">2013</span></div>
-              <div class="game__badges"><span class="badge">iOS</span><span class="badge">Android</span><span class="badge">+ more</span></div>
+              <div class="game__plat">iOS · Android · more</div>
               <div class="game__role"><span class="hi">#1 on the App Store</span> · Programmer</div>
-            </div>
-          </article>
+            </figcaption>
+          </figure>
 
-          <article class="game">
+          <figure class="game">
             <div class="game__art game__art--icon"><img src="assets/games/spy_mouse.png" alt="Spy Mouse app icon" loading="lazy" /></div>
-            <div class="game__body">
+            <figcaption>
               <div class="game__top"><span class="game__name">Spy Mouse</span><span class="game__year">2011</span></div>
-              <div class="game__badges"><span class="badge">iOS</span><span class="badge">Android</span><span class="badge">WP</span></div>
+              <div class="game__plat">iOS · Android · Windows Phone</div>
               <div class="game__role"><span class="hi">#1 on the App Store</span> · Programming</div>
-            </div>
-          </article>
+            </figcaption>
+          </figure>
 
-          <article class="game">
+          <figure class="game">
             <div class="game__art game__art--icon"><img src="assets/games/flight_control.png" alt="Flight Control app icon" loading="lazy" /></div>
-            <div class="game__body">
+            <figcaption>
               <div class="game__top"><span class="game__name">Flight Control</span><span class="game__year">2009</span></div>
-              <div class="game__badges"><span class="badge">iOS</span><span class="badge">DS</span><span class="badge">Android</span><span class="badge">Wii</span></div>
+              <div class="game__plat">iOS · DS · Android · Wii</div>
               <div class="game__role"><span class="hi">#1 on the App Store</span> · Programming</div>
-            </div>
-          </article>
+            </figcaption>
+          </figure>
 
-          <article class="game">
+          <figure class="game">
             <div class="game__art"><img src="assets/games/real_racing.jpg" alt="Real Racing cover art" loading="lazy" /></div>
-            <div class="game__body">
+            <figcaption>
               <div class="game__top"><span class="game__name">Real Racing</span><span class="game__year">2009</span></div>
-              <div class="game__badges"><span class="badge">iPhone / iOS</span></div>
+              <div class="game__plat">iPhone / iOS</div>
               <div class="game__role">Programmer · launch-week optimisation</div>
-            </div>
-          </article>
+            </figcaption>
+          </figure>
 
-          <article class="game">
+          <figure class="game">
             <div class="game__art"><img src="assets/games/back_at_the_barnyard.webp" alt="Back at the Barnyard (Slop Bucket Games) cover art" loading="lazy" /></div>
-            <div class="game__body">
+            <figcaption>
               <div class="game__top"><span class="game__name">Slop Bucket Games</span><span class="game__year">2008</span></div>
-              <div class="game__badges"><span class="badge">Nintendo DS</span></div>
+              <div class="game__plat">Nintendo DS</div>
               <div class="game__role">Programmer · shipped in six months</div>
-            </div>
-          </article>
+            </figcaption>
+          </figure>
 
-          <article class="game">
+          <figure class="game">
             <div class="game__art game__art--icon"><img src="assets/games/fast_furious_fugitive.jpg" alt="The Fast &amp; the Furious: Fugitive 3D cover art" loading="lazy" /></div>
-            <div class="game__body">
+            <figcaption>
               <div class="game__top"><span class="game__name">Fugitive 3D</span><span class="game__year">2007</span></div>
-              <div class="game__badges"><span class="badge">Mobile / iOS</span></div>
+              <div class="game__plat">Mobile / iOS</div>
               <div class="game__role">Programmer</div>
-            </div>
-          </article>
+            </figcaption>
+          </figure>
 
         </div>
       </div>
     </section>
 
-    <!-- ================= LYNX PROJECTS ================= -->
+    <!-- ================= 3 · ATARI LYNX ================= -->
     <section class="section" id="lynx">
       <div class="wrap">
-        <p class="eyebrow">Hobbyist · Atari Lynx</p>
-        <h2>Pushing a 1989 handheld</h2>
-        <p class="lede" style="margin-top:1rem;">
-          The Linux-enthusiast, hobbyist side of the resume. Ports and engines for a
-          machine with 64&nbsp;KB of RAM and a cartridge that behaves more like a disk
-          drive than ROM. Source released where the licence allows.
+        <header class="chapter">
+          <span class="chapter__no" aria-hidden="true">3</span>
+          <h2>Atari Lynx homebrew</h2>
+          <span class="chapter__note">Hobbyist hardware</span>
+        </header>
+        <p class="lede">
+          I enjoy programming the Atari&nbsp;Lynx, a 1989 handheld console — pure
+          embedded work in C and 65C02 assembly.
         </p>
-        <div class="grid-cards">
+        <div class="figgrid">
 
-          <article class="card">
-            <div class="card__shot"><img src="assets/lynx/super_mario_bros.png" alt="Super Mario Bros. on the Atari Lynx" /></div>
-            <div class="card__body">
-              <div class="card__title">Super Mario Bros. <span class="status status--done">Released</span></div>
-              <div class="card__plat">Atari Lynx · NES port</div>
-              <p class="card__desc">A working port of the NES original. Source is public — build it yourself if you legally own the NES ROM.</p>
-              <a class="card__plat" style="color:var(--accent);text-decoration:none;margin-top:.4rem" href="https://github.com/pwsqrd/lynx_smb">github.com/pwsqrd/lynx_smb ↗</a>
-            </div>
-          </article>
+          <figure class="fig">
+            <div class="fig__frame"><img src="assets/wolf/wolf_ingame_tate.png" alt="A boss fight in Wolfenstein 3D on the Atari Lynx, played in portrait TATE mode" loading="lazy" /></div>
+            <div class="fig__title">Wolfenstein 3D <span class="status status--done">Shareware out</span></div>
+            <figcaption>Four years of work: the 1994 Mac source in a 512&nbsp;KB cartridge, every wall a single Suzy hardware-scaled sprite for near-zero CPU cost. Played with the Lynx held portrait — TATE mode.</figcaption>
+            <a class="fig__link" href="https://forums.atariage.com/topic/390838-wolfenstein-3d-shareware/">Download the shareware on AtariAge</a>
+<!-- Temporarily disabled — re-enable later: <a class="fig__link" href="wolfenstein.html">Full case study</a> -->
+          </figure>
 
-          <article class="card">
-            <div class="card__shot"><img src="assets/lynx/prince_of_persia.png" alt="Prince of Persia on the Atari Lynx" /></div>
-            <div class="card__body">
-              <div class="card__title">Prince of Persia <span class="status status--wip">In progress</span></div>
-              <div class="card__plat">Atari Lynx · Atari ST port</div>
-              <p class="card__desc">Porting the rotoscoped Atari ST version, animation frames and all, to the handheld.</p>
-            </div>
-          </article>
+          <figure class="fig">
+            <div class="fig__frame"><img src="assets/lynx/super_mario_bros.png" alt="Super Mario Bros. on the Atari Lynx" loading="lazy" /></div>
+            <div class="fig__title">Super Mario Bros. <span class="status status--done">Released</span></div>
+            <figcaption>A working port of the NES original. Source is public — build it yourself if you legally own the NES ROM.</figcaption>
+            <a class="fig__link" href="https://github.com/pwsqrd/lynx_smb">github.com/pwsqrd/lynx_smb</a>
+          </figure>
 
-          <article class="card">
-            <div class="card__shot"><img src="assets/lynx/another_world.png" alt="Another World on the Atari Lynx" /></div>
-            <div class="card__body">
-              <div class="card__title">Another World <span class="status status--wip">In progress</span></div>
-              <div class="card__plat">Atari Lynx · Amiga port</div>
-              <p class="card__desc">A port of Éric Chahi's polygon-driven cinematic — a natural fit for Suzy's vector-style drawing.</p>
-            </div>
-          </article>
+          <figure class="fig">
+            <div class="fig__frame"><img src="assets/lynx/prince_of_persia.png" alt="Prince of Persia on the Atari Lynx" loading="lazy" /></div>
+            <div class="fig__title">Prince of Persia <span class="status status--wip">In progress</span></div>
+            <figcaption>Porting the rotoscoped Atari ST version, animation frames and all, to the handheld.</figcaption>
+          </figure>
 
-          <article class="card">
-            <div class="card__shot"><img src="assets/lynx/mortal_kombat.png" alt="Mortal Kombat II sprites on the Atari Lynx" /></div>
-            <div class="card__body">
-              <div class="card__title">Mortal Kombat II <span class="status status--wip">Prototype</span></div>
-              <div class="card__plat">Atari Lynx · proof of concept</div>
-              <p class="card__desc">The dream title. Converted sprites and a background to prove big fighters, moves and a 2-player ComLynx mode are possible.</p>
-            </div>
-          </article>
+          <figure class="fig">
+            <div class="fig__frame"><img src="assets/lynx/another_world.png" alt="Another World on the Atari Lynx" loading="lazy" /></div>
+            <div class="fig__title">Another World <span class="status status--wip">In progress</span></div>
+            <figcaption>A port of Éric Chahi's polygon-driven cinematic — a natural fit for Suzy's vector-style drawing.</figcaption>
+          </figure>
 
-        </div>
+          <figure class="fig">
+            <div class="fig__frame"><img src="assets/lynx/mortal_kombat.png" alt="Mortal Kombat II sprites on the Atari Lynx" loading="lazy" /></div>
+            <div class="fig__title">Mortal Kombat II <span class="status status--wip">Prototype</span></div>
+            <figcaption>The dream title. Converted sprites and a background to prove big fighters, moves and a 2-player ComLynx mode are possible.</figcaption>
+          </figure>
 
-        <div class="feature reveal" style="margin-top:3.5rem;">
-          <div>
-            <p class="eyebrow">Featured build · shareware out now</p>
-            <h3 style="font-size:var(--step-2);">Wolfenstein 3D on the Atari Lynx</h3>
-            <p class="lede" style="margin-top:1rem;">
-              Four years in the making — and the <b>shareware release (first three levels) is
-              out now</b>. A port of the 1994 Mac source in a 512&nbsp;KB cartridge, where the
-              trick isn't the CPU but <b>Suzy</b>, the Lynx's 16-bit sprite engine, drawing
-              each wall as a single hardware-scaled sprite for near-zero CPU cost.
-            </p>
-            <ul>
-              <li>BSP renderer ported from the Mac and re-cut for the Lynx</li>
-              <li>Hardware sprite scaling + overlapped Suzy multiply/divide</li>
-              <li>245&nbsp;KB of art hand-crushed to 16 colours, packed into 81&nbsp;KB</li>
-            </ul>
-            <div class="hero__cta" style="margin-top:1.8rem;">
-              <a class="btn btn--primary" href="https://forums.atariage.com/topic/390838-wolfenstein-3d-shareware/">Download the shareware ↗</a>
-<!-- Temporarily disabled — re-enable later: <a class="btn" href="wolfenstein.html">Full case study →</a> -->
-            </div>
-          </div>
-          <div style="justify-self:center;">
-            <div class="feature__media" style="aspect-ratio:1/1;max-width:340px;">
-              <img src="assets/wolf/wolf.gif" alt="Wolfenstein 3D title screen on the Atari Lynx" />
-              <div class="handheld__scan"></div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= SKILLS ================= -->
+    <!-- ================= 4 · TOOLBOX ================= -->
     <section class="section" id="skills">
       <div class="wrap">
-        <p class="eyebrow">Technical skills</p>
-        <h2>Toolbox</h2>
+        <header class="chapter">
+          <span class="chapter__no" aria-hidden="true">4</span>
+          <h2>Toolbox</h2>
+          <span class="chapter__note">Parts list</span>
+        </header>
         <div class="spec">
           <div class="spec__group">
             <h4>Languages</h4>
             <ul class="spec__list">
-              <li>C++ / C</li>
+              <li>C++ / C · multithreading · SIMD</li>
               <li>C#</li>
               <li>Objective-C · Java</li>
               <li>Python · Lua</li>
@@ -390,10 +335,9 @@
             <h4>APIs &amp; libraries</h4>
             <ul class="spec__list">
               <li>OpenGL / OpenGL ES</li>
-              <li>Vulkan</li>
+              <li>Vulkan · Metal</li>
+              <li>GLSL shaders</li>
               <li>SDL · Win32</li>
-              <li>FMOD</li>
-              <li>Berkeley Sockets</li>
             </ul>
           </div>
           <div class="spec__group">
@@ -401,62 +345,61 @@
             <ul class="spec__list">
               <li>Windows · Mac · Linux</li>
               <li>iOS · Android</li>
-              <li>Nintendo DS</li>
-              <li>Atari Lynx (Suzy / Mikey)</li>
+              <li>Nintendo DS (ARM7 / ARM9)</li>
+              <li>Atari Lynx · 65C02</li>
             </ul>
           </div>
           <div class="spec__group">
             <h4>Tools</h4>
             <ul class="spec__list">
+              <li>RenderDoc · Instruments</li>
+              <li>CMake · Git</li>
               <li>Visual Studio · Xcode</li>
               <li>qtCreator · Vim</li>
-              <li>3DStudio Max</li>
               <li>Custom engines &amp; profilers</li>
             </ul>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ================= EXPERIMENTS ================= -->
-    <section class="section" id="experiments">
-      <div class="wrap">
-        <p class="eyebrow">Also on GitHub</p>
-        <h2>Experiments</h2>
-        <p class="lede" style="margin-top:1rem;">Smaller graphics-programming spikes and format loaders.</p>
+        <p class="kicker" style="margin-top:3rem;">Also on GitHub</p>
         <div class="repos">
           <a class="repo" href="https://github.com/programmerunit38416/md5_animloader">
             <span class="repo__name"><span class="slash">md5_</span>animloader</span>
-            <span class="repo__arrow">↗</span>
             <span class="repo__desc">Loader for id Tech 4 (Doom&nbsp;3) MD5 skeletal meshes and animation.</span>
           </a>
           <a class="repo" href="https://github.com/programmerunit38416/prototype_3mx_view">
             <span class="repo__name"><span class="slash">prototype_</span>3mx_view</span>
-            <span class="repo__arrow">↗</span>
             <span class="repo__desc">Prototype viewer for streamed 3MX 3D mesh data.</span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ================= CONTACT ================= -->
-    <section class="section contact" id="contact">
+    <!-- ================= 5 · CONTACT ================= -->
+    <section class="section" id="contact">
       <div class="wrap">
-        <p class="eyebrow" style="justify-content:center;">Get in touch</p>
-        <h2>Open to new work.</h2>
-        <p class="lede">
-          Open to 3D graphics, engine and low-level engineering work — and always happy
-          to talk rendering, optimisation, or squeezing 3D out of hardware that shouldn't do it.
-        </p>
-        <div class="contact__links">
-          <a class="btn btn--primary" href="mailto:paul.withers@gmail.com">paul.withers@gmail.com</a>
-          <a class="btn" href="https://github.com/pwsqrd">GitHub · pwsqrd ↗</a>
+        <header class="chapter">
+          <span class="chapter__no" aria-hidden="true">5</span>
+          <h2>Contact</h2>
+          <span class="chapter__note">Back page</span>
+        </header>
+        <div class="contact__body">
+          <p class="lede">
+            Open to C++ systems, engine and 3D graphics work — and always happy
+            to talk rendering, optimisation, or squeezing 3D out of hardware that
+            shouldn't do it.
+          </p>
+          <div class="contact__links">
+            <a class="btn btn--primary" href="mailto:paul.withers@gmail.com">paul.withers@gmail.com</a>
+            <a class="btn" href="https://github.com/pwsqrd">GitHub · pwsqrd</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
+    <div class="stripe stripe--full" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="wrap footer__inner">
       <span>© <span id="year">2026</span> Paul Withers · Melbourne, Australia</span>
       <span>C/C++ · 3D graphics<!-- Temporarily disabled — re-enable later: · <a href="wolfenstein.html">Wolf3D case study</a> --></span>
