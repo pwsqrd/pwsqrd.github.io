@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atari Lynx Projects — Paul Withers</title>
+  <meta name="description" content="Atari Lynx projects by Paul Withers: a Wolfenstein 3D engine using Suzy hardware sprite scaling, plus ports of Super Mario Bros., Prince of Persia, Another World and Mortal Kombat II." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- ================= NAV ================= -->
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="index.html">Paul Withers</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="index.html">Résumé</a>
+        <a href="lynx.html" aria-current="page">Atari Lynx</a>
+        <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle colour theme">Night</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="wrap page">
+      <div>
+        <header class="page-head">
+          <h1>Atari Lynx projects</h1>
+          <p>Independent work in C and 65C02 assembly</p>
+        </header>
+        <p class="lede">
+          Independent development for the Atari&nbsp;Lynx, a 1989 handheld console.
+          Embedded programming in C and 65C02 assembly against 64&nbsp;KB of RAM and
+          the Suzy sprite-scaling hardware.
+        </p>
+
+        <article class="feature">
+          <h3 class="feature__title">Wolfenstein 3D <span class="status status--done">Complete</span></h3>
+          <div class="video">
+            <iframe src="https://www.youtube-nocookie.com/embed/sRTrD0QI-O0" title="Wolfenstein 3D on the Atari Lynx — full version gameplay" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="feature__body">
+            <p>
+              A conversion of the 1994 Macintosh first-person shooter to a handheld console
+              from 1989 with 64&nbsp;KB of RAM. Built from the original Mac source code, the
+              whole game fits on a 512&nbsp;KB cartridge, and has been developed over five
+              years. Every wall is drawn as a single Suzy hardware-scaled sprite, keeping
+              rendering cost on the CPU close to zero. The game is played with the Lynx held
+              in portrait orientation (TATE mode).
+            </p>
+            <div class="data-table">
+              <table>
+                <thead><tr><th>Specification</th><th>Macintosh (1994)</th><th>Atari Lynx (1989)</th></tr></thead>
+                <tbody>
+                  <tr><td>CPU</td><td>Motorola 68020 or later</td><td>65C02, 4&nbsp;MHz</td></tr>
+                  <tr><td>RAM</td><td>4&nbsp;MB</td><td>64&nbsp;KB</td></tr>
+                  <tr><td>Display</td><td>640 × 480</td><td>160 × 102</td></tr>
+                  <tr><td>Colours on screen</td><td>256</td><td>16</td></tr>
+                  <tr><td>Storage</td><td>Hard disk</td><td>512&nbsp;KB cartridge</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              The full version, shown above, is complete but not publicly released. The
+              shareware release (the first three levels) is available to download.
+            </p>
+            <a class="fig__link" href="https://forums.atariage.com/topic/390838-wolfenstein-3d-shareware/page/3/#findComment-5899952">Download the shareware on AtariAge</a>
+<!-- Temporarily disabled — re-enable later: <a class="fig__link" href="wolfenstein.html">Full case study</a> -->
+          </div>
+          <div class="gallery">
+            <h4 class="gallery__title">Screenshots</h4>
+            <div class="shots shots--wide">
+              <figure class="shot"><img src="assets/wolf/shots/title.png" alt="Wolfenstein 3D title screen on the Atari Lynx" width="632" height="404" loading="lazy" /><figcaption>Title screen</figcaption></figure>
+              <figure class="shot"><img src="assets/wolf/shots/menu.png" alt="Wolfenstein 3D main menu on the Atari Lynx" width="632" height="404" loading="lazy" /><figcaption>Main menu</figcaption></figure>
+              <figure class="shot"><img src="assets/wolf/shots/scenario.png" alt="Scenario select screen listing the six episodes" width="632" height="404" loading="lazy" /><figcaption>Scenario select</figcaption></figure>
+            </div>
+            <div class="shots shots--tate">
+              <figure class="shot"><img src="assets/wolf/shots/guards.png" alt="Three guards in a stone corridor, viewed in portrait TATE mode" width="400" height="636" loading="lazy" /><figcaption>Guards</figcaption></figure>
+              <figure class="shot"><img src="assets/wolf/shots/door.png" alt="A sliding steel door opening onto a guard" width="400" height="636" loading="lazy" /><figcaption>Doors</figcaption></figure>
+              <figure class="shot"><img src="assets/wolf/shots/treasure.png" alt="A room with treasure, a table and red banners" width="396" height="628" loading="lazy" /><figcaption>Treasure room</figcaption></figure>
+              <figure class="shot"><img src="assets/wolf/shots/hans.png" alt="Fighting Hans Grösse, the episode one boss" width="400" height="636" loading="lazy" /><figcaption>Hans Grösse</figcaption></figure>
+              <figure class="shot"><img src="assets/wolf/shots/hitler.png" alt="Fighting Hitler, the episode three boss" width="400" height="636" loading="lazy" /><figcaption>Hitler</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="gallery">
+            <h4 class="gallery__title">How a frame is drawn</h4>
+            <div class="plates plates--frame">
+              <figure class="plate plate--pixel"><img src="assets/wolf/web/frame_build.gif" alt="Animation of a Wolfenstein 3D frame being built up one sprite at a time" width="200" height="254" loading="lazy" /><figcaption>One frame built up sprite by sprite, in portrait orientation.</figcaption></figure>
+              <figure class="plate"><img src="assets/wolf/web/bsp_render_steps.webp" alt="Ten steps showing walls and enemies drawn in BSP order" width="1177" height="650" loading="lazy" /><figcaption>Walls are drawn in BSP order, one Suzy sprite per wall segment. This entire view takes six sprites.</figcaption></figure>
+            </div>
+            <div class="plates">
+              <figure class="plate"><img src="assets/wolf/web/suzy_scaling.webp" alt="Diagram of Suzy stretching and tilting a sprite into a perspective wall" width="1600" height="597" loading="lazy" /><figcaption>Suzy can stretch each scan line of a sprite and shift where each line starts. Combined, the two give a perspective warp at almost no CPU cost. It only reads as perspective from the side, so the game is played in portrait (TATE) mode.</figcaption></figure>
+            </div>
+            <p class="gallery__note">
+              Suzy also multiplies and divides in hardware while the CPU carries on with other
+              work. Scheduling the perspective maths so the CPU and Suzy run in parallel was the
+              most time-consuming optimisation, and the most effective.
+            </p>
+          </div>
+
+          <div class="gallery">
+            <h4 class="gallery__title">Art conversion</h4>
+            <div class="plates plates--two">
+              <figure class="plate"><img src="assets/wolf/web/enemies_comparison.webp" alt="Original PC enemy sprites beside their Atari Lynx conversions" width="1166" height="718" loading="lazy" /><figcaption>The enemy cast: original art (left) and Lynx versions (right). Every asset was reduced to a custom 16-colour palette, resized, then touched up by hand.</figcaption></figure>
+              <figure class="plate"><img src="assets/wolf/web/walls_comparison.webp" alt="Original PC wall textures beside their Atari Lynx conversions" width="1182" height="514" loading="lazy" /><figcaption>Wall textures, original and Lynx. 245&nbsp;KB of art packs into 81&nbsp;KB on the cartridge, and only about 5&nbsp;KB is in RAM at any time.</figcaption></figure>
+            </div>
+          </div>
+
+          <div class="gallery">
+            <h4 class="gallery__title">Development tools</h4>
+            <div class="plates plates--two">
+              <figure class="plate"><img src="assets/wolf/web/map_editor.webp" alt="Custom Wolfenstein 3D map editor" width="1400" height="911" loading="lazy" /><figcaption>Map editor, written in Python.</figcaption></figure>
+              <figure class="plate"><img src="assets/wolf/web/sprite_editor.webp" alt="Custom Lynx sprite editor showing an SS guard" width="1200" height="966" loading="lazy" /><figcaption>Sprite editor for the Lynx art, written in Python.</figcaption></figure>
+            </div>
+            <div class="plates">
+              <figure class="plate"><img src="assets/wolf/web/gearlynx_profiler.webp" alt="GearLynx emulator running the game with profiling panels open" width="1600" height="673" loading="lazy" /><figcaption>A modified GearLynx emulator with added profiling tools for CPU and sprite-engine timings.</figcaption></figure>
+            </div>
+          </div>
+        </article>
+
+        <h3 class="subhead">Other projects</h3>
+        <div class="figgrid">
+          <figure class="fig">
+            <div class="fig__frame"><img src="assets/lynx/super_mario_bros.png" alt="Super Mario Bros. on the Atari Lynx" loading="lazy" /></div>
+            <div class="fig__title">Super Mario Bros. <span class="status status--done">Released</span></div>
+            <figcaption>A complete port of the NES original. Source code is public; building it requires a legally owned NES ROM.</figcaption>
+            <a class="fig__link" href="https://github.com/pwsqrd/lynx_smb">github.com/pwsqrd/lynx_smb</a>
+          </figure>
+
+          <figure class="fig">
+            <div class="fig__frame"><img src="assets/lynx/prince_of_persia.png" alt="Prince of Persia on the Atari Lynx" loading="lazy" /></div>
+            <div class="fig__title">Prince of Persia <span class="status status--wip">In progress</span></div>
+            <figcaption>A port of the Atari ST version, including its full set of rotoscoped animation frames.</figcaption>
+          </figure>
+
+          <figure class="fig">
+            <div class="fig__frame"><img src="assets/lynx/another_world_intro.png" alt="Lester in his lab from the Another World intro, on the Atari Lynx" loading="lazy" /></div>
+            <div class="fig__title">Another World <span class="status status--wip">In progress</span></div>
+            <figcaption>A port of Éric Chahi's polygon-based game, rendered with Suzy's hardware drawing.</figcaption>
+          </figure>
+
+          <figure class="fig">
+            <div class="fig__frame"><img src="assets/lynx/mortal_kombat.gif" alt="Animated Mortal Kombat II fighters on the Atari Lynx" loading="lazy" /></div>
+            <div class="fig__title">Mortal Kombat II <span class="status status--wip">Prototype</span></div>
+            <figcaption>Technical prototype: converted sprites and a background demonstrating large fighters, move sets and a two-player ComLynx link mode.</figcaption>
+          </figure>
+
+          <figure class="fig">
+            <div class="fig__frame"><img src="assets/lynx/street_fighter_2.png" alt="Ryu and E. Honda on Ryu's stage, reduced to the Lynx palette" loading="lazy" /></div>
+            <div class="fig__title">Street Fighter II′ <span class="status status--wip">In progress</span></div>
+            <figcaption>A conversion of the PC Engine Champion Edition. The game code is being converted to 65C02 and its graphics redrawn through Suzy. Shown: a palette and layout test.</figcaption>
+          </figure>
+
+          <figure class="fig">
+            <div class="fig__frame"><img src="assets/lynx/wizard_of_wor_gameplay.png" alt="A Wizard of Wor dungeon with Burwor monsters and the radar, on the Atari Lynx" loading="lazy" /></div>
+            <div class="fig__title">Wizard of Wor <span class="status status--wip">In progress</span></div>
+            <figcaption>A port built from a disassembly of the Commodore 64 version.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span>© <span id="year">2026</span> Paul Withers · Melbourne, Australia</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

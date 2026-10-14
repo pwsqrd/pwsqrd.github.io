@@ -7,17 +7,16 @@
   <meta name="description" content="How a full Wolfenstein 3D was ported to the 1989 Atari Lynx: BSP rendering, Suzy hardware sprite scaling, TATE mode, and packing 245 KB of art into an 81 KB cartridge." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Libre+Franklin:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header class="nav">
     <div class="wrap nav__inner">
-      <a class="brand" href="index.html">Paul<span class="fuji">/</span>Withers</a>
+      <a class="brand" href="index.html">Paul Withers</a>
       <nav class="nav__links" aria-label="Primary">
-        <a class="nav-hide" href="index.html#experience">Experience</a>
-        <a class="nav-hide" href="index.html#lynx">Lynx</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="index.html">Résumé</a>
+        <a href="lynx.html" aria-current="page">Atari Lynx</a>
         <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle colour theme">Night</button>
       </nav>
     </div>
@@ -34,15 +33,15 @@
           <p class="lede" style="margin-top:1.4rem;">
             The entire 1994 Mac version — every level, boss, sprite and animation —
             squeezed into a 512&nbsp;KB cartridge and rendered by a 16-bit sprite chip
-            named Suzy. Four years of work.
+            named Suzy. Five years of work.
           </p>
           <div class="callout" style="margin-top:2rem;">
             <span class="k">Shareware release — out now</span>
             <p style="margin-bottom:1rem;">
               The shareware build (first three levels) is publicly released and available to
-              download and run. The full version is still in progress.
+              download and run. The full version is complete but not publicly released.
             </p>
-            <a class="btn btn--primary" href="https://forums.atariage.com/topic/390838-wolfenstein-3d-shareware/">Download on AtariAge</a>
+            <a class="btn btn--primary" href="https://forums.atariage.com/topic/390838-wolfenstein-3d-shareware/page/3/#findComment-5899952">Download on AtariAge</a>
           </div>
         </div>
       </div>
@@ -217,7 +216,7 @@
               Beyond finishing the full Wolfenstein 3D, current Lynx work is split across
               a port of the Amiga's <b>Another World</b> and the Atari ST version of
               <b>Prince of Persia</b> — plus a released Super Mario Bros. port and a
-              Mortal Kombat II proof of concept. <a href="index.html#lynx">See all Lynx projects</a>
+              Mortal Kombat II proof of concept. <a href="lynx.html">See all Lynx projects</a>
             </p>
           </div>
 
@@ -231,10 +230,8 @@
   </main>
 
   <footer class="footer">
-    <div class="stripe stripe--full" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="wrap footer__inner">
       <span>© <span id="year">2026</span> Paul Withers · Melbourne, Australia</span>
-      <span><a href="index.html">Home</a></span>
     </div>
   </footer>
 
