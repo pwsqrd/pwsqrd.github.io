@@ -31,6 +31,29 @@
   });
 })();
 
+// ---- Homepage view counter -------------------------------
+// Backend: counter-worker/ in this repo (Cloudflare Worker). Stores only a number.
+(function () {
+  var COUNTER_URL = "https://site-counter.pwsqrd.workers.dev/homepage";
+  var box = document.getElementById("viewCounter");
+  if (!box || !window.fetch) return;
+
+  fetch(COUNTER_URL, { method: "POST", credentials: "omit", cache: "no-store" })
+    .then(function (r) { if (!r.ok) throw r; return r.json(); })
+    .then(function (d) {
+      var n = String(d.count);
+      document.getElementById("viewCount").textContent = n.length < 6 ? ("000000" + n).slice(-6) : n;
+      document.getElementById("viewCount").setAttribute("aria-label", d.count + " homepage views");
+      if (d.since) {
+        document.getElementById("viewSince").textContent = new Date(d.since).toLocaleDateString("en-US", {
+          month: "short", day: "numeric", year: "numeric", timeZone: "UTC",
+        });
+      }
+      box.hidden = false;
+    })
+    .catch(function () { /* counter offline: leave it hidden */ });
+})();
+
 // ---- Current year ----------------------------------------
 document.querySelectorAll("#year").forEach(function (el) {
   // Date is intentionally read at runtime in the browser, not build time.

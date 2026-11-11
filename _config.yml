@@ -1,0 +1,5 @@
+# Jekyll (GitHub Pages) build settings
+# The counter backend runs on Cloudflare, not as part of this site, so do not publish its source here.
+exclude:
+  - counter-worker
+  - README.md
